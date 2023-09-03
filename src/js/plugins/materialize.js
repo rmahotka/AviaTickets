@@ -2,7 +2,7 @@ import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
 
 // Init select
-const selects = document.querySelectorAll('select');
+const selects = document.querySelectorAll("select");
 M.FormSelect.init(selects);
 
 export function getSelectInstance(elem) {
@@ -10,7 +10,7 @@ export function getSelectInstance(elem) {
 }
 
 // Init Autocomplete
-const allAutocomplete = document.querySelectorAll('.autocomplete');
+const allAutocomplete = document.querySelectorAll(".autocomplete");
 M.Autocomplete.init(allAutocomplete);
 
 export function getAutocompleteInstance(elem) {
