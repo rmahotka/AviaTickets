@@ -7,7 +7,7 @@
     "lint": "eslint ./src/js",
     "lint:fix": "eslint ./src/js --fix --color",
     "start": "webpack server",
-    "serve:dev": "webpack server --node-env=development --watch",
+    "server:dev": "webpack server --node-env=development",
     "dev": "webpack --node-env=development --watch",
     "prod": "webpack --node-env=production"
   },
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "axios": "^1.5.0",
+    "materialize-css": "^1.0.0-rc.2",
     "normalize.css": "^8.0.1"
   }
 }

@@ -1,4 +1,35 @@
-$color-bg: #fafaf3;
-body{
-   background: $color-bg;
+.container {
+   width: 1200px;
+   max-width: 100%;
+   margin: 0 auto;
+}
+
+.header {
+   width: 100%;
+}
+
+.nav {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.form__footer {
+   display: flex;
+   justify-content: space-between;
+}
+
+.container__form {
+   width: 50%;
+   margin: 0 auto;
+   margin-top: 30px;
+}
+
+.select-wrapper input.select-dropdown {
+   color: #fff;
+   border-bottom: 1px solid #fff !important;
+}
+
+.select-wrapper svg {
+   fill: #fff !important;
 }
