@@ -1,11 +1,12 @@
 import api from "../services/servicesConfig";
 
 class Locations {
+   // eslint-disable-next-line no-shadow
    constructor(api) {
       this.api = api;
       this.countries = null;
       this.cities = null;
-      this.autocompliteCities = null;
+      this.autocompliteCitiesList = null;
    }
 
    async init() {
@@ -17,11 +18,12 @@ class Locations {
       const [countries, cities] = response;
       this.countries = this.serializeCounty(countries);
       this.cities = this.seralizeCities(cities);
-      this.autocompliteCities = this.autocompliteSerialiceByCity(this.cities);
+      this.autocompliteCitiesList = this.autocompliteSerialiceByCity(this.cities);
 
       return response;
    }
 
+   // eslint-disable-next-line class-methods-use-this
    autocompliteSerialiceByCity(cities) {
       return Object.keys(cities).reduce((acc, key) => {
          acc[key] = null;
@@ -29,6 +31,7 @@ class Locations {
       }, {});
    }
 
+   // eslint-disable-next-line class-methods-use-this
    serializeCounty(countries) {
       return countries.reduce((acc, country) => {
          acc[country.code] = country;
@@ -50,8 +53,14 @@ class Locations {
       return this.countries[code].name;
    }
 
-   getCodeByCities(code) {
-      return this.cities.filter((city) => city.country_code === code);
+   getCityByCode(key) {
+      return this.cities[key].code;
+   }
+
+   async fetchTickets(params) {
+      const respons = await this.api.prices(params);
+      console.log(respons);
+      return respons;
    }
 }
 
