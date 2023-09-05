@@ -27,7 +27,7 @@ const datepickers = document.querySelectorAll(".datepicker");
 // eslint-disable-next-line no-undef
 M.Datepicker.init(datepickers, {
    showClearBtn: true,
-   format: "yyyy-mm",
+   format: "yyyy-mm-dd",
 });
 
 // eslint-disable-next-line import/prefer-default-export

@@ -7,16 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
    async function onFormSubmit() {
       const origin = locations.getCityByCode(formUI.originValue);
-      const destinat = locations.getCityByCode(formUI.destinationValue);
-      const departDate = formUI.departDatePickertValue;
-      const retrurnDate = formUI.returntDatePickerValue;
+      const destination = locations.getCityByCode(formUI.destinationValue);
+      // eslint-disable-next-line camelcase
+      const depart_date = formUI.departDatePickertValue;
+      // eslint-disable-next-line camelcase
+      const return_date = formUI.returntDatePickerValue;
       const currency = currencyUI.currencyValue;
 
       await locations.fetchTickets({
          origin,
-         destinat,
-         departDate,
-         retrurnDate,
+         destination,
+         // eslint-disable-next-line camelcase
+         depart_date,
+         // eslint-disable-next-line camelcase
+         return_date,
          currency,
       });
    }
