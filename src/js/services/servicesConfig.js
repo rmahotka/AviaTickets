@@ -35,6 +35,15 @@ class Api {
          throw new Error(err);
       }
    }
+
+   async airlines() {
+      try {
+         const response = await axios.get(`${this.url}/airlines`);
+         return response.data;
+      } catch (err) {
+         throw new Error(err);
+      }
+   }
 }
 
 const api = new Api(config);

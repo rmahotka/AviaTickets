@@ -7,19 +7,22 @@ class Locations {
       this.countries = null;
       this.cities = null;
       this.autocompliteCitiesList = null;
+      this.airlines = null;
    }
 
    async init() {
       const response = await Promise.all([
          this.api.countries(),
          this.api.cities(),
+         this.api.airlines(),
       ]);
 
-      const [countries, cities] = response;
+      const [countries, cities, airlines] = response;
       this.countries = this.serializeCounty(countries);
       this.cities = this.seralizeCities(cities);
       this.autocompliteCitiesList = this.autocompliteSerialiceByCity(this.cities);
-
+      this.airlines = this.serializeAirlines(airlines);
+      console.log(response);
       return response;
    }
 
@@ -49,6 +52,15 @@ class Locations {
       }, {});
    }
 
+   serializeAirlines(airline) {
+      return airline.reduce((acc, item) => {
+         item.logo = `http://pics.avs.io/200/200/${item.code}.png`;
+         item.name = item.name || item.name_translations.en;
+         acc[item.code] = airline;
+         return acc;
+      }, {});
+   }
+
    getCountryNameByCode(code) {
       return this.countries[code].name;
    }
@@ -57,9 +69,16 @@ class Locations {
       return this.cities[key].code;
    }
 
+   getAirlinesAviaCompanyName(code) {
+      return this.airlines[code] ? this.airlines[code].name : "";
+   }
+
+   getAirlinesAviaCompanyLogo(code) {
+      return this.airlines[code] ? this.airlines[code].logo : "";
+   }
+
    async fetchTickets(params) {
       const respons = await this.api.prices(params);
-      console.log(respons);
       return respons;
    }
 }
