@@ -1,22 +1,25 @@
-import { getAutocompleteInstance, getDatePickerInstance } from "../plugins/materialize";
+import {
+   getAutocompleteInstance,
+   getDatePickerInstance,
+} from "../plugins/materialize";
 
 class FormUI {
    constructor(autocompleteInstance, datePickerInstance) {
-      // eslint-disable-next-line no-underscore-dangle, dot-notation
-      this._form = document.forms["formTickets"];
+      this.$form = document.forms.locationControls;
       this.origin = document.getElementById("autocomplete-origin");
-      this.destination = document.getElementById("autocomplete-destination");
-      this.depart = document.getElementById("datepicker-depart");
-      this.return = document.getElementById("datepicker-return");
       this.originAutocomplete = autocompleteInstance(this.origin);
+      this.destination = document.getElementById("autocomplete-destination");
       this.destinationAutocomplete = autocompleteInstance(this.destination);
-      this.departDatePicker = datePickerInstance(this.depart);
-      this.returntDatePicker = datePickerInstance(this.return);
+      this.depart = datePickerInstance(
+         document.getElementById("datepicker-depart"),
+      );
+      this.return = datePickerInstance(
+         document.getElementById("datepicker-return"),
+      );
    }
 
    get form() {
-      // eslint-disable-next-line no-underscore-dangle
-      return this._form;
+      return this.$form;
    }
 
    get originValue() {
@@ -27,15 +30,15 @@ class FormUI {
       return this.destination.value;
    }
 
-   get departDatePickertValue() {
-      return this.departDatePicker.toString();
+   get departDateValue() {
+      return this.depart.toString();
    }
 
-   get returntDatePickerValue() {
-      return this.returntDatePicker.toString();
+   get returnDateValue() {
+      return this.return.toString();
    }
 
-   setAutocompliteDate(data) {
+   setAutocompleteData(data) {
       this.originAutocomplete.updateData(data);
       this.destinationAutocomplete.updateData(data);
    }

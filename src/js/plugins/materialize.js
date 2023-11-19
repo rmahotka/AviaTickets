@@ -1,37 +1,35 @@
 import "materialize-css/dist/css/materialize.min.css";
-// eslint-disable-next-line import/extensions
-import "materialize-css/dist/js/materialize.min.js";
+import M from "materialize-css";
 
 // Init select
-const selects = document.querySelectorAll("select");
-// eslint-disable-next-line no-undef
-M.FormSelect.init(selects);
+const select = document.querySelectorAll("select");
+M.FormSelect.init(select);
 
 export function getSelectInstance(elem) {
-   // eslint-disable-next-line no-undef
    return M.FormSelect.getInstance(elem);
 }
 
 // Init Autocomplete
-const allAutocomplete = document.querySelectorAll(".autocomplete");
-// eslint-disable-next-line no-undef
-M.Autocomplete.init(allAutocomplete);
+const autocomplete = document.querySelectorAll(".autocomplete");
+M.Autocomplete.init(autocomplete, {
+   data: {
+      Apple: null,
+      Microsoft: null,
+      Google: "https://placehold.it/250x250",
+   },
+});
 
 export function getAutocompleteInstance(elem) {
-   // eslint-disable-next-line no-undef
    return M.Autocomplete.getInstance(elem);
 }
 
-// Init Datepicker
+// Init datepickers
 const datepickers = document.querySelectorAll(".datepicker");
-// eslint-disable-next-line no-undef
 M.Datepicker.init(datepickers, {
    showClearBtn: true,
    format: "yyyy-mm-dd",
 });
 
-// eslint-disable-next-line import/prefer-default-export
 export function getDatePickerInstance(elem) {
-   // eslint-disable-next-line no-undef
    return M.Datepicker.getInstance(elem);
 }
