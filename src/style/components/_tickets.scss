@@ -1,0 +1,81 @@
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.ticket {
+  &-card {
+    padding: 10px 15px;
+  }
+
+  &-favorites {
+    margin: 0;
+    margin-bottom: 8px;
+    font-size: 12px;
+    width: 100px;
+    cursor: pointer;
+
+    &:hover {
+      color: #6a1b9a;
+    }
+  }
+
+  &-airline {
+    &-name {
+      font-weight: bold;
+      font-size: 18px;
+      text-transform: capitalize;
+    }
+
+    &-img {
+      max-width: 100px;
+      margin-right: 20px;
+    }
+  }
+
+  &-price {
+    font-size: 25px;
+    padding: 5px;
+    background: #6a1b9a;
+    color: #fff;
+  }
+
+  &-time-departure {
+    font-weight: bold;
+    color: gray;
+  }
+
+  &-additional-info {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &-empty-res-msg {
+    padding: 10px 15px;
+    text-align: center;
+    background: whitesmoke;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &-destination {
+    margin-bottom: 10px;
+    border-bottom: 1px dashed gray;
+
+    .ticket-city {
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+
+    i.material-icons {
+      font-size: 26px;
+    }
+  }
+}

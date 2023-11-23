@@ -1,4 +1,4 @@
-// import "../css/style.css";
+// import '../css/style.css';
 import "./plugins";
 import locations from "./store/locations";
 import formUI from "./views/form";
@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
    // Events
    initApp();
-   form.addEventListener("submit", (event) => {
-      event.preventDefault();
+   form.addEventListener("submit", (e) => {
+      e.preventDefault();
       onFormSubmit();
    });
 
@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
          currency,
       });
 
-      console.log(locations.lastSearch);
       ticketsUI.renderTickets(locations.lastSearch);
    }
 });

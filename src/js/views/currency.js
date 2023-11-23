@@ -12,6 +12,7 @@ class CurrencyUI {
    }
 
    getCurrencySymbol() {
+      console.log(this);
       return this.dictionary[this.currecyValue];
    }
 }
